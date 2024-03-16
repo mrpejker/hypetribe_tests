@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { CreateNFT } from "@/components/CreateNFT";
 
 export function Campaign() {
   return (
