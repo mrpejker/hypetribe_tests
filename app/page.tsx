@@ -72,21 +72,6 @@ const CampaignCard = ({ title, description, image, link }: CampaignProps) => (
 
 const Page = () => (
   <>
-    <div className="fixed top-0 left-0 w-full z-10">
-      <header className="flex justify-between items-center py-4 text-white bg-opacity-90 bg-blue-500">
-        <nav className="flex space-x-4 container mx-auto px-4">
-          <a href="/creators" className="hover:underline text-white">
-            Creators
-          </a>
-          <a href="/create-campaign" className="hover:underline text-white">
-            Create a Campaign
-          </a>
-          <a href="/profile" className="hover:underline text-white">
-            Profile
-          </a>
-        </nav>
-      </header>
-    </div>
     <Image
       src="/assets/intro.png"
       layout="responsive"
