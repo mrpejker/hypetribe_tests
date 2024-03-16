@@ -1,121 +1,55 @@
-import React, { useState } from "react";
-import Image from "next/image";
+import React from "react";
 
-const CampaignPage = () => {
-  const [step, setStep] = useState(1); // Added state to track the step
-  const [selection, setSelection] = useState("Recommended");
-  const [reward, setReward] = useState({ name: "", description: "" });
-
-  // Updated options for both steps
-  const optionsStep1 = [
-    "Recommended",
-    "NEAR",
-    "TON",
-    "Avalanche",
-    "Camino",
-    "Arbitrum",
-  ];
-  const optionsStep2 = ["Catcher game", "Memory cards", "Lottery", "Maze"];
-
-  const handleNext = () => {
-    setStep((prevStep) => prevStep + 1);
-  };
-
-  const campaignPageStyle = {
-    position: "relative",
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "rgba(0, 0, 0, 1)", // Fallback color
-    backgroundImage: "url('/assets/lnd-bg2.png')", // Path to your image
-    backgroundSize: "cover", // Cover the entire page
-    backgroundPosition: "center", // Center the background image
-  };
-
-  const cardContainerStyle = {
-    padding: "2rem",
-    width: "100%",
-    maxWidth: "650px",
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-    backgroundColor: "white",
-    borderRadius: "0.5rem",
-  };
-
-  const cardStyle = {
-    margin: "auto",
-    display: "flex",
-    flexDirection: "column",
-  };
-
-  const labelStyle = {
-    marginBottom: "0.5rem",
-    fontSize: "30px",
-  };
-
-  const selectStyle = {
-    padding: "0.5rem",
-    marginBottom: "1rem",
-    backgroundColor: "#f9f9f9",
-    border: "1px solid #ddd",
-    borderRadius: "0.25rem",
-    fontSize: "20px",
-  };
-
-  const buttonStyle = {
-    padding: "0.5rem",
-    backgroundColor: "#0070f3",
-    color: "white",
-    border: "none",
-    borderRadius: "0.25rem",
-    cursor: "pointer",
-  };
-
-  const buttonHoverStyle = {
-    backgroundColor: "#0056b3",
-  };
-
+export default function Campaign1() {
   return (
-    <div style={campaignPageStyle}>
-      <div style={cardContainerStyle}>
-        <div style={cardStyle}>
-          <label htmlFor="network-select" style={labelStyle}>
-            {step === 1 ? "Choose the network:" : "Choose Game:"}{" "}
-          </label>
-          <select
-            id="selection-select"
-            value={selection}
-            onChange={(e) => setSelection(e.target.value)}
-            style={selectStyle}
-          >
-            {(step === 1 ? optionsStep1 : optionsStep2).map(
-              (
-                option // Conditional dropdown options
-              ) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              )
-            )}
-          </select>
-          <button
-            onClick={handleNext}
-            style={buttonStyle}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor =
-                buttonHoverStyle.backgroundColor)
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor =
-                buttonStyle.backgroundColor)
-            }
-          >
-            Next
-          </button>
+    <div className="container mx-auto p-4 grid gap-8 lg:grid-cols-2">
+      <div>
+        <div className="flex items-center space-x-4">
+          <div className="space-y-1.5">
+            <h1 className="text-3xl font-bold">Summer Style</h1>
+            <p className="text-sm text-gray-500">Posted by</p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <img
+              alt="User avatar"
+              className="rounded-full"
+              src="/placeholder.svg"
+              style={{ width: "40px", height: "40px" }}
+            />
+            <div className="space-y-1 text-sm">
+              <p className="font-semibold">SunnyClothes</p>
+              <p className="text-xs text-gray-500">@sunnyclothes</p>
+            </div>
+          </div>
         </div>
+        <div className="mt-4 grid gap-4">
+          <p className="text-sm">
+            <span className="font-medium">Task:</span> Show off your summer
+            style with our latest collection. 😎
+          </p>
+          <p className="text-sm">
+            <span className="font-medium">Price:</span> $100
+          </p>
+          <p className="text-sm">
+            <span className="font-medium">Platform:</span> Instagram
+          </p>
+        </div>
+        <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Join Campaign
+        </button>
+      </div>
+      <div className="space-y-4">
+        {[1, 2, 3].map((brief) => (
+          <div key={brief} className="border rounded-lg p-6 shadow">
+            <h3 className="font-semibold">Brand Brief</h3>
+            <p className="mt-4 text-sm">
+              Task: Show off your summer style with our latest collection. 😎
+            </p>
+            <p className="text-sm">Price: $100</p>
+            <p className="text-sm">Platform: Instagram</p>
+          </div>
+        ))}
       </div>
     </div>
   );
-};
-
-export default CampaignPage;
+}
